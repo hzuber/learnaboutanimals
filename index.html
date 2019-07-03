@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
@@ -18,23 +19,21 @@
       <section class="how-to-search hidden">
         <h3>We're excited to show you some awesome animal videos! How would you like to find them?</h3>
         <div class="choice-container">
-          <div class="choose-habitat main-page-choice">Find by Habitat</div>
-          <div class="choose-animal-type main-page-choice">Find by Animal Type</div>
-          <div class="choose-free-text main-page-choice">Search for an Animal</div>
-          <div class="pick-for-me main-page-choice">Pick an Animal for Me!</div>
+          <div class="choose-habitat main-page-choice" id="habitat">Find by Habitat</div>
+          <div class="choose-animal-type main-page-choice" id="type">Find by Animal Type</div>
+          <div class="choose-free-text main-page-choice" id="text-search">Search for an Animal</div>
+          <div class="pick-for-me main-page-choice" id="random-animal">Pick an Animal for Me!</div>
         </div>
       </section>
       <section class="search-by-habitat hidden">
         <h3>Which habitat would you like to explore?</h3>
         <div class="choice-container">
-          <div class="desert second-page-choice">Desert</div>
-          <div class="polar second-page-choice">Polar Region</div>
-          <div class="grassland second-page-choice">Grassland</div>
-          <div class="temp-forest second-page-choice">Temperate Forest</div>
-          <div class="ocean second-page-choice">Ocean</div>
-          <div class="mountain second-page-choice">Mountain</div>
-          <div class="freshwater second-page-choice">Freshwater</div>
-          <div class="rainforest second-page-choice">Rainforest</div>
+          <div class="polar second-page-choice" id="polar">Polar Region</div>
+          <div class="grassland second-page-choice" id="grassland">Grassland</div>
+          <div class="temp-forest second-page-choice id="temperate-forest">Temperate Forest</div>
+          <div class="ocean second-page-choice" id="ocean">Ocean</div>
+          <div class="freshwater second-page-choice" id="freshwater">Freshwater</div>
+          <div class="rainforest second-page-choice" id="rainforest">Rainforest</div>
         </div>
       </section>
       <section class="search-by-type hidden">
@@ -48,7 +47,7 @@
           <div class="amphibian second-page-choice">Amphibian</div>
         </div>
       </section>
-      <section class="animal-page">
+      <section class="animal-page hidden">
         <h3>Choose your animal!</h3>
         <div class="choice-container" id="js-animals">
         </div>

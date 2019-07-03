@@ -39,12 +39,12 @@
       <section class="search-by-type hidden">
         <h3>What type of animal would you like to see?</h3>
         <div class="choice-container">
-          <div class="invertebrate second-page-choice">Invertebrate</div>
-          <div class="mammal second-page-choice">Mammal</div>
-          <div class="bird second-page-choice">Bird</div>
-          <div class="fish second-page-choice">Fish</div>
-          <div class="reptile second-page-choice">Reptile</div>
-          <div class="amphibian second-page-choice">Amphibian</div>
+          <div class="invertebrate second-page-choice" id="invertebrate">Invertebrate</div>
+          <div class="mammal second-page-choice" id="mammal">Mammal</div>
+          <div class="bird second-page-choice" id="bird">Bird</div>
+          <div class="fish second-page-choice" id="fish">Fish</div>
+          <div class="reptile second-page-choice" id="reptile">Reptile</div>
+          <div class="amphibian second-page-choice" id="amphibian">Amphibian</div>
         </div>
       </section>
       <section class="animal-page hidden">
@@ -54,13 +54,14 @@
       </section>
       <section class="text-search hidden">
         <h3>Type in the name of the animal you'd like to see:</h3>
-        <input type="text" value="giraffe">
+        <input type="text" id="text-input" value="giraffe">
         <input type="submit" id="js-submit-text" value="Go!">
       </section>
       <section class="video-page hidden">
         <div class="video-container"></div>
-        <input type="submit" id="js-same-animal-video" value="See Another Video!">
+        <div id="js-error-message"></div>
         <input type="submit" id="js-choose-another" value="Choose Another Animal!">
+        <input type="submit" id="js-same-animal-video" value="See Another Video!">
       </section>
     </div>
     <script src="script.js"></script>

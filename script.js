@@ -96,7 +96,7 @@ function generateAnimalCard(i){
   $('#js-animals').append( 
     `<div class="animal-card">
       <h4>${animals[i].name}</h4>
-      <img class="animal-pic" src="${animals[i].src}" alt=${animals[i]}'.alt'}">
+      <img class="animal-pic" src="${animals[i].src}" alt="${animals[i].alt}">
     </div>`)
 }
 

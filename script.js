@@ -5,14 +5,15 @@ const searchUrl= "https://www.googleapis.com/youtube/v3/search"
 const apiKey= "AIzaSyCjp8B1KBh8hGAWWlHt3QyzvUn8UIxLl7E";
 
 function startFunction(){
-  $('#js-start-button').click(function(){
+  $('#js-start-button').on('click', function(){
     $('.start-page').addClass('hidden');
     $('.how-to-search').removeClass('hidden');
+    $('#js-animals').empty();
   })
 };
 
 function getChoice(){
-  $('.main-page-choice').click(function(event){
+  $('.main-page-choice').on('click', function(event){
     var page = $(event.target).attr('id');
     console.log('getChoice: ' + page);
     choosePath(page);
@@ -34,7 +35,7 @@ function choosePath(page){
 }
 
 function searchHabitat(){
-   $('.second-page-choice').click(function(event){
+   $('.second-page-choice').on('click', function(event){
     var habitat = $(event.target).attr('id');
     for (let i=0; i< animals.length; i++){
       if (animals[i].habitat == habitat){
@@ -47,7 +48,7 @@ function searchHabitat(){
 }
 
 function searchType(){
-   $('.second-page-choice').click(function(event){
+   $('.second-page-choice').on('click', function(event){
     var type = $(event.target).attr('id');
     for (let i=0; i< animals.length; i++){
       if (animals[i].type == type){
@@ -67,12 +68,17 @@ function randomAnimal(){
 }
 
 function textSearch(){
-  const textInput= $('#text-input').val();
   $('.text-search').on('click', '#js-submit-text', function(event){
     event.preventDefault();
-    $('.text-search').addClass('hidden');
-    getVideo(textInput);
-
+    const textInput= $('#text-input').val();
+    console.log(textInput + "2");
+    if (!textInput){
+      alert("Please enter an animal");
+    }else {
+      $('.text-search').addClass('hidden');
+      getVideo(textInput);
+      $('#text-input').val(null);
+    }
   })
 }
 
@@ -128,7 +134,11 @@ function getVideo(choice){
       else {displayResults(responseJson)};
     })
     .catch(err => {
+      if (err.message == "Cannot read property 'id' of undefined"){
+        alert("We couldn't find any videos of that animal, try another!");
+      } else{
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
+      }
     });
 }
 
@@ -148,18 +158,10 @@ function displayResults(responseJson){
   randomizeVideo(responseJson);
 }
 
-//function seeAnother(){
-  //$('#js-same-animal-video').on('click', function(event){
-    //event.preventDefault();
-    //console.log("seeAnother ran");
-    //getVideo();
-  //});
-//}
-
 function seeAnother(){
   $('#js-same-animal-video').on('click', function(event){
     let animal= $(this).find('h4').text();
-    console.log('seeAnnother ran ' + animal);
+    console.log('seeAnother ran ' + animal);
     $('.animal-page').addClass('hidden');
     $('.video-page').removeClass('hidden');
     getVideo(animal);
@@ -170,6 +172,8 @@ function seeAnother(){
 function chooseAnother(){
   $('#js-choose-another').on('click', function(event){
     event.preventDefault();
+    $('#js-animals').empty();
+    $('.video-container').empty();
     $('.video-page').addClass('hidden');
     $('.how-to-search').removeClass('hidden');
   })

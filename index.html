@@ -10,11 +10,18 @@
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
+    <nav>
+      <div class="nav-home">Animal Watch</div>
+    </nav>
     <div class="container">
       <section class="start-page">
         <h2>Welcome to Animal Watch!</h2>
         <h4>Let's go watch and learn about some of your favorite animals!</h4>
-        <input type="submit" id="js-start-button" value="Go!">
+
+        <div class="button-wrapper pulse">
+          <input type="submit" id="js-start-button" value="Go!">
+        </div>
+
       </section>
       <section class="how-to-search hidden">
         <h3>We're excited to show you some awesome animal videos! How would you like to find them?</h3>
@@ -54,14 +61,26 @@
       </section>
       <section class="text-search hidden">
         <h3>Type in the name of the animal you'd like to see:</h3>
+        
         <input type="text" id="text-input">
-        <input type="submit" id="js-submit-text" value="Go!">
+
+        <div class="button-wrapper pulse">
+          <input type="submit" id="js-submit-text" value="Go!">
+        </div>
+
       </section>
       <section class="video-page hidden">
         <div class="video-container"></div>
         <div id="js-error-message"></div>
-        <input type="submit" id="js-choose-another" value="Choose Another Animal!">
-        <input type="submit" id="js-same-animal-video" value="See Another Video!">
+
+        <div class="button-wrapper pulse">
+          <input type="submit" id="js-same-animal-video" value="See Another Video!">
+        </div>
+
+        <div class="button-wrapper pulse">
+          <input type="submit" id="js-choose-another" value="Choose Another Animal!">
+        </div>
+
       </section>
     </div>
     <script src="script.js"></script>

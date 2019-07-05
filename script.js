@@ -6,11 +6,24 @@ const apiKey= "AIzaSyCjp8B1KBh8hGAWWlHt3QyzvUn8UIxLl7E";
 
 function startFunction(){
   $('#js-start-button').on('click', function(){
+    console.log("start clicked");
     $('.start-page').addClass('hidden');
     $('.how-to-search').removeClass('hidden');
     $('#js-animals').empty();
   })
 };
+
+function navHome(){
+  $('.nav-home').on('click', function(event){
+    $('.start-page').removeClass('hidden');
+    $('.how-to-search').addClass('hidden');
+    $('.search-by-habitat').addClass('hidden');
+    $('.search-by-type').addClass('hidden');
+    $('.animal-page').addClass('hidden');
+    $('.text-search').addClass('hidden');
+    $('.video-page').addClass('hidden');
+  })
+}
 
 function getChoice(){
   $('.main-page-choice').on('click', function(event){
@@ -65,6 +78,7 @@ function randomAnimal(){
   let rando = randomizedAnimal.name;
   console.log(rando);
   getVideo(rando);
+  seeAnother(rando);
 }
 
 function textSearch(){
@@ -77,6 +91,7 @@ function textSearch(){
     }else {
       $('.text-search').addClass('hidden');
       getVideo(textInput);
+      seeAnother(textInput);
       $('#text-input').val(null);
     }
   })
@@ -95,6 +110,7 @@ function chooseAnimal(){
     $('.animal-page').addClass('hidden');
     $('.video-page').removeClass('hidden');
     getVideo(animal);
+    seeAnother(animal);
   });
 } 
 
@@ -111,7 +127,7 @@ function getVideo(choice){
   const params= {
     key: apiKey,
     q: choice,
-    channelId: "UCXVCgDuD_QCkI7gTKU7-tpg",
+    topicId: "kids education",
     part: "snippet",
     safeSearch: "strict",
     type: "video",
@@ -158,9 +174,8 @@ function displayResults(responseJson){
   randomizeVideo(responseJson);
 }
 
-function seeAnother(){
+function seeAnother(animal){
   $('#js-same-animal-video').on('click', function(event){
-    let animal= $(this).find('h4').text();
     console.log('seeAnother ran ' + animal);
     $('.animal-page').addClass('hidden');
     $('.video-page').removeClass('hidden');
@@ -181,12 +196,12 @@ function chooseAnother(){
 
 function watchForm(){
   startFunction();
+  navHome();
   getChoice();
   searchHabitat();
   searchType();
   textSearch();
   chooseAnimal();
-  seeAnother();
   chooseAnother();
 };
 

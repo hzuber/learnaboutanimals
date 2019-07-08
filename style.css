@@ -179,6 +179,10 @@ input[type=text]{
   background-image: url("https://img-aws.ehowcdn.com/560x560p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/aac4f9b5127946ec8cc85c718d4261d5");
   background-size: 300px;
 }
+.desert{
+  background-image: url("https://www.telegraph.co.uk/content/dam/Travel/leadAssets/34/07/morocco-slide-1_3407659a.jpg?imwidth=450");
+  background-size: 500px;
+}
 .invertebrate{
   background-image: url("https://www.nationalgeographic.com/content/dam/animals/pictures/hero/invertebrates-hero.jpg");
   background-size: 500px;
@@ -237,4 +241,21 @@ input[type=text]{
   object-fit: cover;
   border-radius: 10px;
   margin-top: -15px;
+}
+.video-page{
+  margin: 10px !important;
+}
+.flex-buttons{
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  width: 100%
+}
+.video-animal-name{
+  text-transform: capitalize;
+}
+@media only screen and (max-width: 775px){
+  .flex-buttons{
+    flex-direction: column;
+  }
 }

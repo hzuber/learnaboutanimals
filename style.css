@@ -4,29 +4,73 @@
 body{
   font-family: 'DM Sans', sans-serif;
   text-align: center;
+  background: #A3EEFF;
+  color:#0C38C9;
+  margin: 0px;
+}
+nav{
+  padding: 10px;
+  background: white;
+  opacity: 0.5;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px;
+}
+nav:hover{
+  cursor: pointer;
 }
 .hidden{
-  display: none;
+  display: none !important;
 }
 section{
-  margin: 50px 20px;
+  margin: 50px;
 }
 p{
-  font-size: 16px;
+  font-size: 18px;
+}
+.start-page{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.button-wrapper{
+  background: white;
+  width: auto;
+  padding: 0px 5px;
+  align-self: center;
+  border-radius: 15px;
+  margin: 20px 0px;
+}
+@keyframes pulse_animation {
+  0% { transform: scale(1); }
+  10% { transform: scale(1.08); }
+  30% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  70% { transform: scale(1); }
+  90% { transform: scale(1.08); }
+}
+.pulse:hover {
+  animation-name: pulse_animation;
+  animation-duration: 5000ms;
+  transform-origin:70% 70%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 input[type=submit]{
   padding: 15px;
-  font-size: 18px;
+  font-size: 28px;
+  color: white;
+  font-weight: bold;
   min-width: 170px;
   margin: 10px 5px;
+  background: #5CD208;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  text-shadow: 1px 1px 2px black;
 }
 input[type=submit]:hover{
   cursor: pointer;
-}
-input[type=text]{
-  font-size: 18px;
-  width: 400px;
-  padding: 15px 10px;
 }
 .choice-container{
   display: flex;
@@ -34,45 +78,184 @@ input[type=text]{
   justify-content: space-around;
 }
 .main-page-choice{
-  border: 2px black solid;
+  border: 5px white solid;
+  border-radius: 10px;
   padding: 10px;
   margin: 20px;
   flex: 1 1 0;
   min-width: 180px;
   max-width: 320px;
   height: 300px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;;
 }
 .main-page-choice:hover{
   cursor: pointer;
 }
+.choose-habitat{
+  background-image: url("https://c402277.ssl.cf1.rackcdn.com/photos/1579/images/hero_small/HI_115201.jpg?1345598092");
+  background-size: 500px;
+}
+.choose-animal-type{
+  background-image: url("https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/images/cc_iStock_18996432_LARGE_16x9.jpg?itok=Xd6hKkof");
+  background-size: 550px;
+  background-repeat: no-repeat;
+  background-position: -100px 0px;
+}
+.choose-free-text{
+  background-image: url("https://5.imimg.com/data5/KB/DS/MY-69760/magnifying-glass-500x500.jpg");
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: center;
+}
+.pick-for-me{
+  background-image: url("https://res.cloudinary.com/teepublic/image/private/s--dA6dbUvP--/t_Preview/b_rgb:ffffff,c_limit,f_jpg,h_630,q_90,w_630/v1531784432/production/designs/2898987_0.jpg");
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: center;
+}
+.text-search{
+  display: flex;
+  flex-direction: column;
+}
+input[type=text]{
+  font-size: 18px;
+  width: 400px;
+  padding: 15px 10px;
+  align-self: center;
+}
+.video-page{
+  display: flex;
+  flex-direction: column;
+}
 .second-page-choice{
-  border: 2px black solid;
+  border: 5px white solid;
+  border-radius: 10px;
   padding: 10px;
   margin: 20px;
   flex: 1 1 0;
   min-width: 180px;
   max-width: 320px;
   height: 300px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;;
 }
 .second-page-choice:hover{
   cursor: pointer;
 }
+.polar{
+  background-image: url('https://cdn6.newsnation.in/images/2016/06/07/573317198-northamerica_6.jpg');
+  background-size: 470px;
+}
+.grassland{
+  background-image: url("https://www.raysweb.net/specialplaces/images/grasslands-400h.jpg");
+  background-size: 470px;
+}
+.temp-forest {
+  background-image: url("https://science.sciencemag.org/content/sci/358/6362/494.1/F1.large.jpg?width=800&height=600&carousel=1");
+  background-size: 520px;
+}
+.ocean{
+  background-image: url("https://e2k9ube.cloudimg.io/s/cdn/x/https://edienet.s3.amazonaws.com/news/images/full_37834.jpg?v=22/01/2019%2011:33:00");
+  background-size: 520px;
+}
+.freshwater{
+  background-image: url("http://www.feow.org/userfiles/image/Oder_Germany_106655.jpg");
+  background-size: 520px;
+}
+.rainforest{
+  background-image: url("https://img-aws.ehowcdn.com/560x560p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/aac4f9b5127946ec8cc85c718d4261d5");
+  background-size: 300px;
+}
+.desert{
+  background-image: url("https://www.telegraph.co.uk/content/dam/Travel/leadAssets/34/07/morocco-slide-1_3407659a.jpg?imwidth=450");
+  background-size: 500px;
+}
+.invertebrate{
+  background-image: url("https://www.nationalgeographic.com/content/dam/animals/pictures/hero/invertebrates-hero.jpg");
+  background-size: 500px;
+  background-position: -180px;
+}
+.mammal{
+  background-image: url("https://www.nationalgeographic.com/content/dam/animals/pictures/hero/mammals-hero.jpg");
+  background-size: 400px;
+  background-position: -120px;
+}
+.bird{
+  background-image: url("https://www.creationeffects.com/graphics/F/bird-flock-after-effects.jpg");
+  background-size: 370px;
+  background-position: -100px;
+}
+.fish{
+  background-image: url("https://newsdeeply.imgix.net/20170830081004/3997721496_e5d9958403_o.jpg?w=640&fit=max&q=60");
+  background-size: 410px;
+  background-position: -50px;
+}
+.reptile{
+  background-image: url("https://www.nationalgeographic.com/content/dam/animals/pictures/hero/reptiles-hero.jpg");
+  background-size: 440px;
+  background-position: -40px;
+}
+.amphibian{
+  background-image: url("https://animals.sandiegozoo.org/sites/default/files/2016-10/animals_hero_amphibeans.jpg");
+  background-size: 550px;
+  background-position: -150px;
+}
 .animal-card{
-  border: 2px black solid;
-  padding: 10px;
+  border: 5px white solid;
+  border-radius: 10px;
   margin: 20px;
   flex: 1 1 0;
   min-width: 180px;
-  max-width: 320px;
+  max-width: 240px;
   height: 300px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0px 0px 3px black;
+  background-color: #0C38C9;
 }
 .animal-card:hover{
   cursor: pointer;
 }
 .animal-card h4{
   text-transform: capitalize;
+  z-index: 2;
+  background-color: #0C38C9;
 }
 .animal-pic{
-  height:180px;
   width: 170px;
+  height: 230px;
+  z-index: -1;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: -15px;
+}
+.video-page{
+  margin: 10px !important;
+}
+.flex-buttons{
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  width: 100%
+}
+.video-animal-name{
+  text-transform: capitalize;
+}
+@media only screen and (max-width: 775px){
+  .flex-buttons{
+    flex-direction: column;
+  }
 }

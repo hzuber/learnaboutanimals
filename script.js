@@ -2,15 +2,30 @@
 
 const searchUrl= "https://www.googleapis.com/youtube/v3/search"
 
-const apiKey= "AIzaSyCjp8B1KBh8hGAWWlHt3QyzvUn8UIxLl7E";
+const apiKey= "AIzaSyB3hw6YJqtiQRs1X5pNsmqWisgoifViVKE";
 
 function startFunction(){
   $('#js-start-button').on('click', function(){
+    console.log("start clicked");
     $('.start-page').addClass('hidden');
     $('.how-to-search').removeClass('hidden');
     $('#js-animals').empty();
   })
 };
+
+function navHome(){
+  $('.nav-home').on('click', function(event){
+    $('.start-page').removeClass('hidden');
+    $('.how-to-search').addClass('hidden');
+    $('.search-by-habitat').addClass('hidden');
+    $('.search-by-type').addClass('hidden');
+    $('.animal-page').addClass('hidden');
+    $('.text-search').addClass('hidden');
+    $('.video-page').addClass('hidden');
+    seeAnother("");
+    console.log("seeAnother from navHome");
+  })
+}
 
 function getChoice(){
   $('.main-page-choice').on('click', function(event){
@@ -38,7 +53,7 @@ function searchHabitat(){
    $('.second-page-choice').on('click', function(event){
     var habitat = $(event.target).attr('id');
     for (let i=0; i< animals.length; i++){
-      if (animals[i].habitat == habitat){
+      if (animals[i].habitat.includes(habitat)){
         generateAnimalCard(i);
       }
     }
@@ -65,6 +80,8 @@ function randomAnimal(){
   let rando = randomizedAnimal.name;
   console.log(rando);
   getVideo(rando);
+  //seeAnother(rando);
+  console.log("seeAnother from randomAnimal ran" + rando);
 }
 
 function textSearch(){
@@ -78,6 +95,8 @@ function textSearch(){
       $('.text-search').addClass('hidden');
       getVideo(textInput);
       $('#text-input').val(null);
+      //seeAnother(textInput);
+      console.log("seeAnother ran from textSearch " + textInput);
     }
   })
 }
@@ -95,6 +114,8 @@ function chooseAnimal(){
     $('.animal-page').addClass('hidden');
     $('.video-page').removeClass('hidden');
     getVideo(animal);
+    //seeAnother(animal);
+    console.log("seeAnother ran from chooseAnimal" + animal)
   });
 } 
 
@@ -110,20 +131,24 @@ function getVideo(choice){
   console.log('getVideo ran');
   const params= {
     key: apiKey,
-    q: choice,
-    channelId: "UCXVCgDuD_QCkI7gTKU7-tpg",
+    q: choice + " animal video kids education",
+    topicId: "kids",
     part: "snippet",
     safeSearch: "strict",
     type: "video",
+    maxResults: 50,
   };
   const queryString = formatQueryParams(params);
   const url = searchUrl + '?' + queryString;
-    console.log(url);
+  console.log("search url is " + url);
+  $('.video-animal-name').empty()
+  $('.video-animal-name').append(choice);
 
   fetch(url)
     .then(response => {
       if (response.ok) {
         return response.json();
+        console.log("theVideo is fetched");
       }
       throw new Error(response.statusText);
     })
@@ -147,24 +172,24 @@ function randomizeVideo(responseJson){
   var theVideo = responseJson["items"][Math.floor(Math.random()*responseJson["items"].length)];
   $('.video-container').append(`<iframe width="420" height="315"
     src="https://www.youtube.com/embed/${theVideo.id.videoId}?autoplay="1"">
-    </iframe>`)
+    </iframe>`); 
 }
 
 function displayResults(responseJson){
-  //console.log(responseJson);
+  console.log("displayResults ran");
   $('.video-page').removeClass('hidden');
   $('.video-container').empty();
   //console.log(responseJson["items"]);
   randomizeVideo(responseJson);
+  //seeAnother("null");
+  //console.log("seeAnother ran from displayResults");
 }
 
-function seeAnother(){
-  $('#js-same-animal-video').on('click', function(event){
-    let animal= $(this).find('h4').text();
-    console.log('seeAnother ran ' + animal);
-    $('.animal-page').addClass('hidden');
-    $('.video-page').removeClass('hidden');
-    getVideo(animal);
+function seeAnother(animal){
+  $('#js-same-animal-video').on('click', function(event){let animal = $('.video-animal-name').text();
+    console.log('seeAnother clicked, display ' + animal);
+    $('.video-container').empty();
+      getVideo(animal);
   });
 }
 
@@ -176,17 +201,20 @@ function chooseAnother(){
     $('.video-container').empty();
     $('.video-page').addClass('hidden');
     $('.how-to-search').removeClass('hidden');
+    seeAnother("");
+    console.log("seeAnother ran from chooseAnother")
   })
 }
 
 function watchForm(){
   startFunction();
+  navHome();
   getChoice();
   searchHabitat();
   searchType();
   textSearch();
-  chooseAnimal();
   seeAnother();
+  chooseAnimal();
   chooseAnother();
 };
 

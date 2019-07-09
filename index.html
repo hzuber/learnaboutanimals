@@ -8,54 +8,60 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <nav>
-      <div class="nav-home">Animal Watch</div>
+      <div class="back-button pulse">
+        <i class="fa fa-chevron-left"></i>
+        <p>BACK</p>
+      </div>
+      <div class="nav-home add">Animal Watch</div>
+      <div class="invisible-div"></div>
     </nav>
     <div class="container">
-      <section class="start-page">
+      <section class="start-page current-page" id="startPage">
         <h2>Welcome to Animal Watch!</h2>
         <h4>Let's go watch and learn about some of your favorite animals!</h4>
 
         <div class="button-wrapper pulse">
-          <input type="submit" id="js-start-button" value="Go!">
+          <input type="submit" class="add" id="js-start-button" value="Go!">
         </div>
 
       </section>
-      <section class="how-to-search hidden">
+      <section class="how-to-search hidden" id="howToSearch">
         <h3>We're excited to show you some awesome animal videos! How would you like to find them?</h3>
         <div class="choice-container">
-          <div class="choose-habitat main-page-choice" id="habitat">Find by Habitat</div>
-          <div class="choose-animal-type main-page-choice" id="type">Find by Animal Type</div>
-          <div class="choose-free-text main-page-choice" id="text-search">Search for an Animal</div>
-          <div class="pick-for-me main-page-choice" id="random-animal">Pick an Animal for Me!</div>
+          <div class="choose-habitat main-page-choice add" id="habitat">Find by Habitat</div>
+          <div class="choose-animal-type main-page-choice add" id="type">Find by Animal Type</div>
+          <div class="choose-free-text main-page-choice add" id="text-search">Search for an Animal</div>
+          <div class="pick-for-me main-page-choice add" id="random-animal">Pick an Animal for Me!</div>
         </div>
       </section>
-      <section class="search-by-habitat hidden">
+      <section class="search-by-habitat hidden" id="searchByHabitat">
         <h3>Which habitat would you like to explore?</h3>
         <div class="choice-container">
-          <div class="polar second-page-choice" id="polar">Polar Region</div>
-          <div class="grassland second-page-choice" id="grassland">Grassland</div>
-          <div class="temp-forest second-page-choice" id="temperate-forest">Temperate Forest</div>
-          <div class="ocean second-page-choice" id="ocean">Ocean</div>
-          <div class="freshwater second-page-choice" id="freshwater">Freshwater</div>
-          <div class="rainforest second-page-choice" id="rainforest">Rainforest</div>
-          <div class="desert second-page-choice" id="desert">Desert</div>
+          <div class="polar second-page-choice add" id="polar">Polar Region</div>
+          <div class="grassland second-page-choice add" id="grassland">Grassland</div>
+          <div class="temp-forest second-page-choice add" id="temperate-forest">Temperate Forest</div>
+          <div class="ocean second-page-choice add" id="ocean">Ocean</div>
+          <div class="freshwater second-page-choice add" id="freshwater">Freshwater</div>
+          <div class="rainforest second-page-choice add" id="rainforest">Rainforest</div>
+          <div class="desert second-page-choice add" id="desert">Desert</div>
         </div>
       </section>
-      <section class="search-by-type hidden">
+      <section class="search-by-type hidden" id="searchByType">
         <h3>What type of animal would you like to see?</h3>
         <div class="choice-container">
-          <div class="invertebrate second-page-choice" id="invertebrate">Invertebrate</div>
-          <div class="mammal second-page-choice" id="mammal">Mammal</div>
-          <div class="bird second-page-choice" id="bird">Bird</div>
-          <div class="fish second-page-choice" id="fish">Fish</div>
-          <div class="reptile second-page-choice" id="reptile">Reptile</div>
-          <div class="amphibian second-page-choice" id="amphibian">Amphibian</div>
+          <div class="invertebrate second-page-choice add" id="invertebrate">Invertebrate</div>
+          <div class="mammal second-page-choice add" id="mammal">Mammal</div>
+          <div class="bird second-page-choice add" id="bird">Bird</div>
+          <div class="fish second-page-choice add" id="fish">Fish</div>
+          <div class="reptile second-page-choice add" id="reptile">Reptile</div>
+          <div class="amphibian second-page-choice add" id="amphibian">Amphibian</div>
         </div>
       </section>
-      <section class="animal-page hidden">
+      <section class="animal-page hidden" id="animalPage">
         <h3>Choose your animal!</h3>
         <div class="choice-container" id="js-animals">
         </div>
@@ -65,12 +71,12 @@
         
         <input type="text" id="text-input">
 
-        <div class="button-wrapper pulse">
+        <div class="button-wrapper pulse add">
           <input type="submit" id="js-submit-text" value="Go!">
         </div>
 
       </section>
-      <section class="video-page hidden">
+      <section class="video-page hidden" id="videoPage">
         <h3 class="video-animal-name"></h3>
         <div class="video-container"></div>
         <div id="js-error-message"></div>
@@ -80,7 +86,7 @@
             <input type="submit" id="js-same-animal-video" value="See Another Video!">
           </div>
 
-          <div class="button-wrapper pulse">
+          <div class="button-wrapper pulse add">
             <input type="submit" id="js-choose-another" value="Choose Another Animal!">
           </div>
         </div>

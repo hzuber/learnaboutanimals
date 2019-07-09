@@ -4,39 +4,65 @@ const searchUrl= "https://www.googleapis.com/youtube/v3/search"
 
 const apiKey= "AIzaSyB3hw6YJqtiQRs1X5pNsmqWisgoifViVKE";
 
+const history = [];
+
+var current = 0;
+
+function incrementHistory(){
+  $('body').on('click', '.add', function(event){
+    current++;
+    console.log("current is " + current);
+    history.push($(this).closest('section').attr('id'));
+    console.log("something was clicked" + history);
+  })
+}
+
 function startFunction(){
   $('#js-start-button').on('click', function(){
-    console.log("start clicked");
-    $('.start-page').addClass('hidden');
-    $('.how-to-search').removeClass('hidden');
+    $('.start-page').addClass('hidden').removeClass('current-page');
+    $('.how-to-search').removeClass('hidden').addClass('current-page');
     $('#js-animals').empty();
   })
 };
 
 function navHome(){
   $('.nav-home').on('click', function(event){
-    $('.start-page').removeClass('hidden');
-    $('.how-to-search').addClass('hidden');
-    $('.search-by-habitat').addClass('hidden');
-    $('.search-by-type').addClass('hidden');
-    $('.animal-page').addClass('hidden');
-    $('.text-search').addClass('hidden');
-    $('.video-page').addClass('hidden');
+    $('.start-page').removeClass('hidden').addClass('current-page');
+    $('.how-to-search').addClass('hidden').removeClass('current-page');
+    $('.search-by-habitat').addClass('hidden').removeClass('current-page');
+    $('.search-by-type').addClass('hidden').removeClass('current-page');
+    $('.animal-page').addClass('hidden').removeClass('current-page');
+    $('.text-search').addClass('hidden').removeClass('current-page');
+    $('.video-page').addClass('hidden').removeClass('current-page');
     seeAnother("");
     console.log("seeAnother from navHome");
+  })
+}
+
+function backButton(){
+  $('.back-button').on('click', function(event){
+    let previous = current-1;
+    console.log("currentPage is " + current);
+    console.log("previousPage is " + previous);
+    var previousPage = history[previous];
+    var currentPage = history[current];
+    $("body").find($("section")).not('hidden').addClass('hidden');
+    $("body").find($('#' + previousPage )).removeClass('hidden');
+    if (previousPage != "animalPage"){
+      $('#js-animals').empty();}
+    history.pop();
+    current--;
   })
 }
 
 function getChoice(){
   $('.main-page-choice').on('click', function(event){
     var page = $(event.target).attr('id');
-    console.log('getChoice: ' + page);
     choosePath(page);
   })
 }
 
 function choosePath(page){
-  console.log('choosePath: ' + page);
   $('.how-to-search').addClass('hidden');
   if (page === 'habitat'){
     $('.search-by-habitat').removeClass('hidden');
@@ -78,25 +104,21 @@ function searchType(){
 function randomAnimal(){
   let randomizedAnimal= animals[Math.floor(Math.random() * animals.length)];
   let rando = randomizedAnimal.name;
-  console.log(rando);
   getVideo(rando);
-  //seeAnother(rando);
-  console.log("seeAnother from randomAnimal ran" + rando);
 }
 
 function textSearch(){
   $('.text-search').on('click', '#js-submit-text', function(event){
     event.preventDefault();
     const textInput= $('#text-input').val();
-    console.log(textInput + "2");
     if (!textInput){
       alert("Please enter an animal");
-    }else {
-      $('.text-search').addClass('hidden');
+    } else if ($.isNumeric(textInput)){
+      alert("Please input a real animal");
+    }
+    else {
       getVideo(textInput);
       $('#text-input').val(null);
-      //seeAnother(textInput);
-      console.log("seeAnother ran from textSearch " + textInput);
     }
   })
 }
@@ -110,29 +132,24 @@ function formatQueryParams(params) {
 function chooseAnimal(){
   $('#js-animals').on('click', '.animal-card', function(event){
     let animal= $(this).find('h4').text();
-    console.log('chooseAnimal ran ' + animal);
     $('.animal-page').addClass('hidden');
     $('.video-page').removeClass('hidden');
     getVideo(animal);
-    //seeAnother(animal);
-    console.log("seeAnother ran from chooseAnimal" + animal)
   });
 } 
 
 function generateAnimalCard(i){
   $('#js-animals').append( 
-    `<div class="animal-card">
+    `<div class="animal-card add">
       <h4>${animals[i].name}</h4>
       <img class="animal-pic" src="${animals[i].src}" alt="${animals[i].alt}">
     </div>`)
 }
 
 function getVideo(choice){
-  console.log('getVideo ran');
   const params= {
     key: apiKey,
     q: choice + " animal video kids education",
-    topicId: "kids",
     part: "snippet",
     safeSearch: "strict",
     type: "video",
@@ -140,7 +157,6 @@ function getVideo(choice){
   };
   const queryString = formatQueryParams(params);
   const url = searchUrl + '?' + queryString;
-  console.log("search url is " + url);
   $('.video-animal-name').empty()
   $('.video-animal-name').append(choice);
 
@@ -148,15 +164,14 @@ function getVideo(choice){
     .then(response => {
       if (response.ok) {
         return response.json();
-        console.log("theVideo is fetched");
       }
       throw new Error(response.statusText);
     })
     .then(responseJson => {
-      if (responseJson.total == "0"){
-        $('#js-error-message').text(`We couldn't find you any animals. Try choosing something else`);
+      if (responseJson.items.length === 0){
+        alert(`We couldn't find you any animals. Try choosing something else`);
       }
-      else {displayResults(responseJson)};
+      else {displayResults(responseJson);}
     })
     .catch(err => {
       if (err.message == "Cannot read property 'id' of undefined"){
@@ -168,7 +183,6 @@ function getVideo(choice){
 }
 
 function randomizeVideo(responseJson){
-  console.log("randomize ran");
   var theVideo = responseJson["items"][Math.floor(Math.random()*responseJson["items"].length)];
   $('.video-container').append(`<iframe width="420" height="315"
     src="https://www.youtube.com/embed/${theVideo.id.videoId}?autoplay="1"">
@@ -176,18 +190,14 @@ function randomizeVideo(responseJson){
 }
 
 function displayResults(responseJson){
-  console.log("displayResults ran");
+  $('.text-search').addClass('hidden').removeClass('current-page');
   $('.video-page').removeClass('hidden');
   $('.video-container').empty();
-  //console.log(responseJson["items"]);
   randomizeVideo(responseJson);
-  //seeAnother("null");
-  //console.log("seeAnother ran from displayResults");
 }
 
 function seeAnother(animal){
   $('#js-same-animal-video').on('click', function(event){let animal = $('.video-animal-name').text();
-    console.log('seeAnother clicked, display ' + animal);
     $('.video-container').empty();
       getVideo(animal);
   });
@@ -201,14 +211,14 @@ function chooseAnother(){
     $('.video-container').empty();
     $('.video-page').addClass('hidden');
     $('.how-to-search').removeClass('hidden');
-    seeAnother("");
-    console.log("seeAnother ran from chooseAnother")
   })
 }
 
 function watchForm(){
   startFunction();
+  incrementHistory();
   navHome();
+  backButton();
   getChoice();
   searchHabitat();
   searchType();

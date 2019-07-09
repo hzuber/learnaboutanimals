@@ -1,3 +1,4 @@
+
 *{
   box-sizing: border-box;
 }
@@ -15,9 +16,36 @@ nav{
   font-size: 16px;
   font-weight: bold;
   margin: 0px;
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
-nav:hover{
+.nav-home{
+  font-size: 30px;
+  flex-grow: 2;
+}
+.nav-home:hover{
   cursor: pointer;
+}
+.back-button{
+  align-self: flex-start;
+  display: flex;
+  flex-grow: 1;
+  color: #5CD208;
+}
+.back-button:hover{
+  cursor: pointer;
+}
+.fa-chevron-left{
+  font-size: 24px;
+}
+.back-button, p{
+  display: inline-block;
+}
+.invisible-div{
+  width: 61px;
+  flex-grow: 1;
 }
 .hidden{
   display: none !important;

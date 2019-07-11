@@ -2,18 +2,25 @@
 *{
   box-sizing: border-box;
 }
+.invisible{
+  visibility: hidden;
+}
+.add:hover{
+  cursor: pointer;
+}
 body{
   font-family: 'DM Sans', sans-serif;
   text-align: center;
-  background: #A3EEFF;
-  color:#0C38C9;
+  background: #A0F0FF;
+  color: #1F3A93;
   margin: 0px;
 }
 nav{
-  padding: 10px;
-  background: white;
-  opacity: 0.5;
-  font-size: 16px;
+  font-family: 'Fredoka One', cursive;
+  text-shadow: 1px 1px 2px white;
+  padding: 5px;
+  background: #FFD712;
+  font-size: 20px;
   font-weight: bold;
   margin: 0px;
   display: inline-flex;
@@ -32,10 +39,23 @@ nav{
   align-self: flex-start;
   display: flex;
   flex-grow: 1;
-  color: #5CD208;
+  color: #1F3A93;
+  flex-shrink: 3;
 }
 .back-button:hover{
   cursor: pointer;
+}
+@media only screen and (max-width: 500px){
+  .fa-chevron-left{
+    font-size: 18px;
+  }
+  .back-button p{
+    visibility: hidden;
+    font-size: 12px;
+  }
+  .nav-home{
+    font-size: 26px;
+  }
 }
 .fa-chevron-left{
   font-size: 24px;
@@ -46,12 +66,13 @@ nav{
 .invisible-div{
   width: 61px;
   flex-grow: 1;
+  flex-shrink: 3;
 }
 .hidden{
   display: none !important;
 }
 section{
-  margin: 50px;
+  margin: 50px 10px;
 }
 p{
   font-size: 18px;
@@ -60,6 +81,12 @@ p{
   margin-top: 50px;
   display: flex;
   flex-direction: column;
+}
+.start-page > h2{
+  font-family: 'Fredoka One', cursive;
+}
+.start-page > h4{
+  font-size: 22px;
 }
 .button-wrapper{
   background: white;
@@ -84,10 +111,13 @@ p{
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+#js-start-button, #js-submit-text{
+  font-family: 'Fredoka One', cursive;
+}
 input[type=submit]{
   padding: 15px;
   font-size: 28px;
-  color: white;
+  color: #1F3A93;
   font-weight: bold;
   min-width: 170px;
   margin: 10px 5px;
@@ -95,7 +125,7 @@ input[type=submit]{
   border-radius: 10px;
   border: none;
   outline: none;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 1px 1px 2px white;
 }
 input[type=submit]:hover{
   cursor: pointer;
@@ -105,49 +135,52 @@ input[type=submit]:hover{
   flex-wrap: wrap;
   justify-content: space-around;
 }
+@media only screen and (max-width: 545px){
+  .main-page-choice{
+    min-width: 150px !important;
+    max-width: 150px !important;
+    height: 200px !important;
+    margin: 10px !important;
+  }
+  .main-page-choice > img{
+    height: 192px !important;
+    width: 140px !important;
+  }
+}
 .main-page-choice{
-  border: 5px white solid;
+  border: 7px #FFD712 solid;
   border-radius: 10px;
-  padding: 10px;
+  padding: 0px;
   margin: 20px;
   flex: 1 1 0;
-  min-width: 180px;
-  max-width: 320px;
+  min-width: 215px;
+  max-width: 215px;
   height: 300px;
-  color: white;
-  font-weight: bold;
-  text-shadow: 
-		-1px -1px 0 #000,
-		1px -1px 0 #000,
-		-1px 1px 0 #000,
-		1px 1px 0 #000;;
+  color: #1F3A93;
+  font-weight: bolder;
+  position: relative;
 }
-.main-page-choice:hover{
-  cursor: pointer;
+.main-page-choice > img{
+  height: 292px;
+  width: 205px;
+  object-fit: cover;
+  z-index: -1;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-.choose-habitat{
-  background-image: url("https://c402277.ssl.cf1.rackcdn.com/photos/1579/images/hero_small/HI_115201.jpg?1345598092");
-  background-size: 500px;
+.main-page-choice > p{
+  z-index: 1;
+  padding: 3px;
+  font-size: 18px;
+  margin: 0px;
+  background: #FFD712;
+  width: 100%;
 }
-.choose-animal-type{
-  background-image: url("https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/images/cc_iStock_18996432_LARGE_16x9.jpg?itok=Xd6hKkof");
-  background-size: 550px;
-  background-repeat: no-repeat;
-  background-position: -100px 0px;
-}
-.choose-free-text{
-  background-image: url("https://5.imimg.com/data5/KB/DS/MY-69760/magnifying-glass-500x500.jpg");
-  background-size: 200px;
-  background-repeat: no-repeat;
-  background-color: white;
-  background-position: center;
-}
-.pick-for-me{
-  background-image: url("https://res.cloudinary.com/teepublic/image/private/s--dA6dbUvP--/t_Preview/b_rgb:ffffff,c_limit,f_jpg,h_630,q_90,w_630/v1531784432/production/designs/2898987_0.jpg");
-  background-size: 200px;
-  background-repeat: no-repeat;
-  background-color: white;
-  background-position: center;
+.search-alphabetically{
+  display: flex;
+  flex-wrap: wrap;
 }
 .text-search{
   display: flex;
@@ -159,119 +192,130 @@ input[type=text]{
   padding: 15px 10px;
   align-self: center;
 }
-.video-page{
+.search-alphabetically{
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+.search-alphabetically > h4{
+  margin: 10px;
+  font-size: 26px;
+}
+@media only screen and (max-width: 545px){
+  .second-page-choice{
+    min-width: 150px !important;
+    max-width: 150px !important;
+    height: 200px !important;
+    margin: 10px !important;
+  }
+  .second-page-choice > img{
+    height: 192px !important;
+    width: 140px !important;
+  }
 }
 .second-page-choice{
-  border: 5px white solid;
+  border: 7px #FFD712 solid;
   border-radius: 10px;
-  padding: 10px;
+  padding: 0px;
   margin: 20px;
   flex: 1 1 0;
-  min-width: 180px;
-  max-width: 320px;
+  min-width: 215px;
+  max-width: 215px;
   height: 300px;
-  color: white;
-  font-weight: bold;
-  text-shadow: 
-		-1px -1px 0 #000,
-		1px -1px 0 #000,
-		-1px 1px 0 #000,
-		1px 1px 0 #000;;
+  color: #1F3A93;
+  font-weight: bolder;
+  position: relative;
 }
-.second-page-choice:hover{
-  cursor: pointer;
+.second-page-choice > img{
+  height: 292px;
+  width: 205px;
+  object-fit: cover;
+  z-index: -1;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-.polar{
-  background-image: url('https://cdn6.newsnation.in/images/2016/06/07/573317198-northamerica_6.jpg');
-  background-size: 470px;
+.second-page-choice > p{
+  z-index: 1;
+  padding: 3px;
+  font-size: 18px;
+  margin: 0px;
+  background: #FFD712;
+  width: 100%;
 }
-.grassland{
-  background-image: url("https://www.raysweb.net/specialplaces/images/grasslands-400h.jpg");
-  background-size: 470px;
+.animal-name-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
 }
-.temp-forest {
-  background-image: url("https://science.sciencemag.org/content/sci/358/6362/494.1/F1.large.jpg?width=800&height=600&carousel=1");
-  background-size: 520px;
+.animal-name{
+  width: 150px;
+  margin: 10px;
 }
-.ocean{
-  background-image: url("https://e2k9ube.cloudimg.io/s/cdn/x/https://edienet.s3.amazonaws.com/news/images/full_37834.jpg?v=22/01/2019%2011:33:00");
-  background-size: 520px;
+.animal-name{
+  text-transform: capitalize;
 }
-.freshwater{
-  background-image: url("http://www.feow.org/userfiles/image/Oder_Germany_106655.jpg");
-  background-size: 520px;
+.animal-page > h3{
+  font-family: 'Fredoka One', cursive;
 }
-.rainforest{
-  background-image: url("https://img-aws.ehowcdn.com/560x560p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/aac4f9b5127946ec8cc85c718d4261d5");
-  background-size: 300px;
-}
-.desert{
-  background-image: url("https://www.telegraph.co.uk/content/dam/Travel/leadAssets/34/07/morocco-slide-1_3407659a.jpg?imwidth=450");
-  background-size: 500px;
-}
-.invertebrate{
-  background-image: url("https://www.nationalgeographic.com/content/dam/animals/pictures/hero/invertebrates-hero.jpg");
-  background-size: 500px;
-  background-position: -180px;
-}
-.mammal{
-  background-image: url("https://www.nationalgeographic.com/content/dam/animals/pictures/hero/mammals-hero.jpg");
-  background-size: 400px;
-  background-position: -120px;
-}
-.bird{
-  background-image: url("https://www.creationeffects.com/graphics/F/bird-flock-after-effects.jpg");
-  background-size: 370px;
-  background-position: -100px;
-}
-.fish{
-  background-image: url("https://newsdeeply.imgix.net/20170830081004/3997721496_e5d9958403_o.jpg?w=640&fit=max&q=60");
-  background-size: 410px;
-  background-position: -50px;
-}
-.reptile{
-  background-image: url("https://www.nationalgeographic.com/content/dam/animals/pictures/hero/reptiles-hero.jpg");
-  background-size: 440px;
-  background-position: -40px;
-}
-.amphibian{
-  background-image: url("https://animals.sandiegozoo.org/sites/default/files/2016-10/animals_hero_amphibeans.jpg");
-  background-size: 550px;
-  background-position: -150px;
+@media only screen and (max-width: 545px){
+  .animal-card{
+    min-width: 150px !important;
+    max-width: 150px !important;
+    height: 200px !important;
+    margin: 10px !important;
+  }
+  .animal-card > img{
+    height: 192px !important;
+    width: 140px !important;
+  }
 }
 .animal-card{
-  border: 5px white solid;
+  border: 7px #FFD712 solid;
   border-radius: 10px;
+  padding: 0px;
   margin: 20px;
   flex: 1 1 0;
-  min-width: 180px;
-  max-width: 240px;
+  min-width: 215px;
+  max-width: 215px;
   height: 300px;
-  color: white;
-  font-weight: bold;
-  text-shadow: 0px 0px 3px black;
-  background-color: #0C38C9;
-}
-.animal-card:hover{
-  cursor: pointer;
+  color: #1F3A93;
+  font-weight: bolder;
+  position: relative;
 }
 .animal-card h4{
   text-transform: capitalize;
-  z-index: 2;
-  background-color: #0C38C9;
+  z-index: 1;
+  padding: 3px;
+  font-size: 18px;
+  margin: 0px;
+  background: #FFD712;
+  width: 100%;
 }
 .animal-pic{
-  width: 170px;
-  height: 230px;
-  z-index: -1;
+  height: 292px;
+  width: 205px;
   object-fit: cover;
+  z-index: -1;
   border-radius: 10px;
-  margin-top: -15px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .video-page{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Fredoka One', cursive;
   margin: 10px !important;
+}
+@media screen and (min-width: 600px) {
+    iframe {
+        width: 450px !important;
+    }
 }
 .flex-buttons{
   display: flex;

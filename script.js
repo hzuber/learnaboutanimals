@@ -101,7 +101,7 @@ function choosePath(page){
 
 function searchHabitat(){
    $('.second-page-choice').on('click', function(event){
-    var habitat = $(event.target).attr('id');
+    var habitat = $(event.target).closest('div.second-page-choice').attr('id');
     for (let i=0; i< animals.length; i++){
       if (animals[i].habitat.includes(habitat)){
         generateAnimalCard(i);
@@ -173,7 +173,7 @@ function chooseAnimalName(){
 
 function searchType(){
    $('.second-page-choice').on('click', function(event){
-    var type = $(event.target).attr('id');
+    var type = $(event.target).closest('div.second-page-choice').attr('id');
     for (let i=0; i< animals.length; i++){
       if (animals[i].type == type){
         generateAnimalCard(i);

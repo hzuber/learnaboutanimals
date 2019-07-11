@@ -271,7 +271,7 @@ function getVideo(choice){
     part: "snippet",
     safeSearch: "strict",
     type: "video",
-    maxResults: 30,
+    maxResults: 25,
   };
   const queryString = formatQueryParams(params);
   const url = searchUrl + '?' + queryString;

@@ -267,7 +267,7 @@ function verifyAnimal(textInput){
 function getVideo(choice){
   const params= {
     key: apiKey,
-    q: choice + " animal kids education nature",
+    q: choice + " animal kids learn nature",
     part: "snippet",
     safeSearch: "strict",
     type: "video",

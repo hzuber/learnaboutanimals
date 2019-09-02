@@ -18,151 +18,165 @@
 	<nav role="navigation">
 		<div class="back-button pulse invisible" role="button">
 			<i class="fa fa-chevron-left"></i>
-      <p>BACK</p>
-    </div>
-    <div class="nav-home add">Animal Watch</div>
-    <div class="invisible-div"></div>
-  </nav>
+			<p>BACK</p>
+		</div>
+		<div class="nav-home add">
+			Animal Watch
+		</div>
+		<div class="invisible-div"></div>
+  	</nav>
 
-    <div class="container" role="main">
-      <section class="start-page current-page" id="startPage">
-        <h2>Welcome to Animal Watch!</h2>
-        <h4>Let's go watch and learn about some of your favorite animals!</h4>
-        <div class="button-wrapper pulse" role="button">
-          <input type="submit" class="add" id="js-start-button" value="Go!">
-        </div>
-      </section>
+    	<div class="container" role="main">
+		<section class="start-page current-page" id="startPage">
+			<h2>Welcome to Animal Watch!</h2>
+			<h4>
+				Let's go watch and learn about some of your favorite animals!
+			</h4>
+			<div class="button-wrapper pulse" role="button">
+				<input type="submit" class="add" id="js-start-button" value="Go!">
+			</div>
+      		</section>
 
-      <section class="how-to-search hidden" id="howToSearch">
-        <h3>We're excited to show you some awesome animal videos! How would you like to find them?</h3>
-        <div class="choice-container">
-          <div class="choose-habitat main-page-choice add" id="habitat">
-            <p>Find by Habitat</p>
-            <img src="https://c402277.ssl.cf1.rackcdn.com/photos/1579/images/hero_small/HI_115201.jpg?1345598092" alt="A desert">
-          </div>
-          <div class="choose-animal-type main-page-choice add" id="type">
-            <p>Find by Animal Type</p>
-            <img src="https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/images/cc_iStock_18996432_LARGE_16x9.jpg?itok=Xd6hKkof" alt="A green snake">
-          </div>
-          <div class="choose-free-text main-page-choice add" id="text-search">
-            <p>Search for an Animal</p>
-            <img src="https://5.imimg.com/data5/KB/DS/MY-69760/magnifying-glass-500x500.jpg" alt="A magnifying glass">
-          </div>
-          <div class="animal-dictionary main-page-choice add" id="animalAlphabet">
-            <p>Find Alphabetically</p>
-            <img src="http://www.sclance.com/images/az/Az_82710.jpg" alt="A to Z">
-          </div>
-          <div class="pick-for-me main-page-choice add" id="random-animal">
-            <p>Pick an Animal for Me!</p>
-            <img src="https://res.cloudinary.com/teepublic/image/private/s--dA6dbUvP--/t_Preview/b_rgb:ffffff,c_limit,f_jpg,h_630,q_90,w_630/v1531784432/production/designs/2898987_0.jpg" alt="An question mark"
-          </div>
-        </div>
-      </section>
+      		<section class="how-to-search hidden" id="howToSearch">
+        		<h3>
+				We're excited to show you some awesome animal videos! How would you like to find them?
+			</h3>
+        		<div class="choice-container">
+          			<div class="choose-habitat main-page-choice add" id="habitat">
+					<p>Find by Habitat</p>
+					<img src="https://c402277.ssl.cf1.rackcdn.com/photos/1579/images/hero_small/HI_115201.jpg?1345598092" alt="A desert">
+				</div>
+				<div class="choose-animal-type main-page-choice add" id="type">
+					<p>Find by Animal Type</p>
+					<img src="https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/images/cc_iStock_18996432_LARGE_16x9.jpg?itok=Xd6hKkof" alt="A green snake">
+				</div>
+				<div class="choose-free-text main-page-choice add" id="text-search">
+					<p>Search for an Animal</p>
+					<img src="https://5.imimg.com/data5/KB/DS/MY-69760/magnifying-glass-500x500.jpg" alt="A magnifying glass">
+				</div>
+				<div class="animal-dictionary main-page-choice add" id="animalAlphabet">
+					<p>Find Alphabetically</p>
+					<img src="http://www.sclance.com/images/az/Az_82710.jpg" alt="A to Z">
+				</div>
+				<div class="pick-for-me main-page-choice add" id="random-animal">
+					<p>Pick an Animal for Me!</p>
+					<img src="https://res.cloudinary.com/teepublic/image/private/s--dA6dbUvP--/t_Preview/b_rgb:ffffff,c_limit,f_jpg,h_630,q_90,w_630/v1531784432/production/designs/2898987_0.jpg" alt="An question mark"
+				</div>
+        		</div>
+      		</section>
 
-      <section class="search-by-habitat hidden" id="searchByHabitat">
-        <h3>Which habitat would you like to explore?</h3>
-        <div class="choice-container">
-          <div class="polar second-page-choice add" id="polar">
-            <p>Polar Region</p>
-            <img src="https://cdn6.newsnation.in/images/2016/06/07/573317198-northamerica_6.jpg" alt="a polar landscape">
-          </div>
-          <div class="grassland second-page-choice add" id="grassland">
-            <p>Grassland</p>
-            <img src="https://www.raysweb.net/specialplaces/images/grasslands-400h.jpg" alt="A grassland landscape">
-          </div>
-          <div class="temp-forest second-page-choice add" id="temperate-forest">
-            <p>Temperate Forest</p>
-            <img src="https://science.sciencemag.org/content/sci/358/6362/494.1/F1.large.jpg?width=800&height=600&carousel=1" alt="A temperate forest with a mountian in the background">
-          </div>
-          <div class="ocean second-page-choice add" id="ocean">
-            <p>Ocean</p>
-            <img src="https://e2k9ube.cloudimg.io/s/cdn/x/https://edienet.s3.amazonaws.com/news/images/full_37834.jpg?v=22/01/2019%2011:33:00" alt="An underwater ocean landscape">
-          </div>
-          <div class="freshwater second-page-choice add" id="freshwater">
-            <p>Freshwater</p>
-            <img src="http://www.feow.org/userfiles/image/Oder_Germany_106655.jpg" alt="A pond with lilypads">
-          </div>
-          <div class="rainforest second-page-choice add" id="rainforest">
-            <p>Rainforest</p>
-            <img src="https://img-aws.ehowcdn.com/560x560p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/aac4f9b5127946ec8cc85c718d4261d5" alt="A rainforest with sun shining through the canopy">
-          </div>
-          <div class="desert second-page-choice add" id="desert">
-            <p>Desert</p>
-            <img src="https://www.telegraph.co.uk/content/dam/Travel/leadAssets/34/07/morocco-slide-1_3407659a.jpg?imwidth=450" alt="A desert with a palm tree">
-          </div>
-        </div>
-      </section>
+		<section class="search-by-habitat hidden" id="searchByHabitat">
+			<h3>Which habitat would you like to explore?</h3>
+			<div class="choice-container">
+				<div class="polar second-page-choice add" id="polar">
+					<p>Polar Region</p>
+					<img src="https://cdn6.newsnation.in/images/2016/06/07/573317198-northamerica_6.jpg" alt="a polar landscape">
+				</div>
+				<div class="grassland second-page-choice add" id="grassland">
+					<p>Grassland</p>
+					<img src="https://www.raysweb.net/specialplaces/images/grasslands-400h.jpg" alt="A grassland landscape">
+				</div>
+				<div class="temp-forest second-page-choice add" id="temperate-forest">
+					<p>Temperate Forest</p>
+					<img src="https://science.sciencemag.org/content/sci/358/6362/494.1/F1.large.jpg?width=800&height=600&carousel=1" alt="A temperate forest with a mountian in the background">
+				</div>
+				<div class="ocean second-page-choice add" id="ocean">
+					<p>Ocean</p>
+					<img src="https://e2k9ube.cloudimg.io/s/cdn/x/https://edienet.s3.amazonaws.com/news/images/full_37834.jpg?v=22/01/2019%2011:33:00" alt="An underwater ocean landscape">
+				</div>
+				<div class="freshwater second-page-choice add" id="freshwater">
+					<p>Freshwater</p>
+					<img src="http://www.feow.org/userfiles/image/Oder_Germany_106655.jpg" alt="A pond with lilypads">
+				</div>
+				<div class="rainforest second-page-choice add" id="rainforest">
+					<p>Rainforest</p>
+					<img src="https://img-aws.ehowcdn.com/560x560p/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/aac4f9b5127946ec8cc85c718d4261d5" alt="A rainforest with sun shining through the canopy">
+				</div>
+				<div class="desert second-page-choice add" id="desert">
+					<p>Desert</p>
+					<img src="https://www.telegraph.co.uk/content/dam/Travel/leadAssets/34/07/morocco-slide-1_3407659a.jpg?imwidth=450" alt="A desert with a palm tree">
+				</div>
+			</div>
+		</section>
 
-      <section class="search-by-type hidden" id="searchByType">
-        <h3>What type of animal would you like to see?</h3>
-        <div class="choice-container">
-          <div class="invertebrate second-page-choice add" id="invertebrate">
-            <p>Invertebrate</p>
-            <img src="https://www.nationalgeographic.com/content/dam/animals/pictures/hero/invertebrates-hero.jpg" alt="A praying mantis">
-          </div>
-          <div class="mammal second-page-choice add" id="mammal">
-            <p>Mammal</p>
-            <img src="https://www.nationalgeographic.com/content/dam/animals/pictures/hero/mammals-hero.jpg" alt="A mama and baby orangutan">
-          </div>
-          <div class="bird second-page-choice add" id="bird">
-            <p>Bird</p>
-            <img src="https://www.creationeffects.com/graphics/F/bird-flock-after-effects.jpg" alt="A flock of geese flying">
-          </div>
-          <div class="fish second-page-choice add" id="fish">
-            <p>Fish</p>
-            <img src="https://newsdeeply.imgix.net/20170830081004/3997721496_e5d9958403_o.jpg?w=640&fit=max&q=60" alt="A school of fish swimming">
-          </div>
-          <div class="reptile second-page-choice add" id="reptile">
-            <p>Reptile</p>
-            <img src="https://www.nationalgeographic.com/content/dam/animals/pictures/hero/reptiles-hero.jpg" alt="An iguana face">
-          </div>
-          <div class="amphibian second-page-choice add" id="amphibian">
-            <p>Amphibian</p>
-            <img src="https://animals.sandiegozoo.org/sites/default/files/2016-10/animals_hero_amphibeans.jpg" alt="A tree frog with orange eyes">
-          </div>
-        </div>
-      </section>
+		<section class="search-by-type hidden" id="searchByType">
+			<h3>What type of animal would you like to see?</h3>
+			<div class="choice-container">
+				<div class="invertebrate second-page-choice add" id="invertebrate">
+					<p>Invertebrate</p>
+					<img src="https://www.nationalgeographic.com/content/dam/animals/pictures/hero/invertebrates-hero.jpg" alt="A praying mantis">
+				</div>
+				<div class="mammal second-page-choice add" id="mammal">
+					<p>Mammal</p>
+					<img src="https://www.nationalgeographic.com/content/dam/animals/pictures/hero/mammals-hero.jpg" alt="A mama and baby orangutan">
+				</div>
+				<div class="bird second-page-choice add" id="bird">
+					<p>Bird</p>
+					<img src="https://www.creationeffects.com/graphics/F/bird-flock-after-effects.jpg" alt="A flock of geese flying">
+				</div>
+				<div class="fish second-page-choice add" id="fish">
+					<p>Fish</p>
+					<img src="https://newsdeeply.imgix.net/20170830081004/3997721496_e5d9958403_o.jpg?w=640&fit=max&q=60" alt="A school of fish swimming">
+				</div>
+				<div class="reptile second-page-choice add" id="reptile">
+					<p>Reptile</p>
+					<img src="https://www.nationalgeographic.com/content/dam/animals/pictures/hero/reptiles-hero.jpg" alt="An iguana face">
+				</div>
+				<div class="amphibian second-page-choice add" id="amphibian">
+					<p>Amphibian</p>
+					<img src="https://animals.sandiegozoo.org/sites/default/files/2016-10/animals_hero_amphibeans.jpg" alt="A tree frog with orange eyes">
+				</div>
+			</div>
+		</section>
 
-      <section class="animal-page hidden" id="animalPage">
-        <h3>Choose your animal!</h3>
-        <div class="choice-container" id="js-animals">
-        </div>
-      </section>
+		<section class="animal-page hidden" id="animalPage">
+			<h3>Choose your animal!</h3>
+			<div class="choice-container" id="js-animals">
+			</div>
+		</section>
 
-      <section class="text-search hidden" id="textSearch" role="search">
-        <h3>Type in the name of the animal you'd like to see:</h3>
-        <input type="text" id="text-input">
-        <div class="button-wrapper pulse add" role="button">
-          <input type="submit" id="js-submit-text" value="Go!">
-        </div>
-      </section>
+		<section class="text-search hidden" id="textSearch" role="search">
+			<h3>Type in the name of the animal you'd like to see:</h3>
+			<input type="text" id="text-input">
+			<div class="button-wrapper pulse add" role="button">
+				<input type="submit" id="js-submit-text" value="Go!">
+			</div>
+		</section>
 
-      <section class="search-alphabetically hidden" id="searchAlphabetically">
-        <h4 class="dictionaryChoice add" id="a-d">Animals beginning with A-D</h4>
-        <h4 class="dictionaryChoice add" id="h-m">Animals beginning with E-M</h4>
-        <h4 class="dictionaryChoice add" id="n-z">Animals beginning with N-Z</h4>
-        <h4 class="dictionaryChoice add" id="allAnimals">List all animals alphabetically</h4>
-      </section>
+		<section class="search-alphabetically hidden" id="searchAlphabetically">
+			<h4 class="dictionaryChoice add" id="a-d">
+				Animals beginning with A-D
+			</h4>
+			<h4 class="dictionaryChoice add" id="h-m">
+				Animals beginning with E-M
+			</h4>
+			<h4 class="dictionaryChoice add" id="n-z">
+				Animals beginning with N-Z
+			</h4>
+			<h4 class="dictionaryChoice add" id="allAnimals">
+				List all animals alphabetically
+			</h4>
+		</section>
 
-      <section class="animal-list hidden" id="animalList">
-        <div class="animal-name-container" role="list"></div>
-      </section>
+	      <section class="animal-list hidden" id="animalList">
+		<div class="animal-name-container" role="list"></div>
+	      </section>
 
-      <section class="video-page hidden" id="videoPage">
-        <h3 class="video-animal-name"></h3>
-        <div class="video-container"></div>
-        <div id="js-error-message"></div>
-        <div class="flex-buttons">
-          <div class="button-wrapper pulse" role="button">
-            <input type="submit" id="js-same-animal-video" value="See Another Video!">
-          </div>
+		<section class="video-page hidden" id="videoPage">
+			<h3 class="video-animal-name"></h3>
+			<div class="video-container"></div>
+			<div id="js-error-message"></div>
+			<div class="flex-buttons">
+				<div class="button-wrapper pulse" role="button">
+					<input type="submit" id="js-same-animal-video" value="See Another Video!">
+				</div>
 
-          <div class="button-wrapper pulse add" role="button">
-            <input type="submit" id="js-choose-another" value="Choose Another Animal!">
-          </div>
-        </div>
-      </section>
-    </div>
+				<div class="button-wrapper pulse add" role="button">
+					<input type="submit" id="js-choose-another" value="Choose Another Animal!">
+				</div>
+			</div>
+		</section>
+    	</div>
     <script src="script.js"></script>
     <script src="store.js"></script>
   </body>
